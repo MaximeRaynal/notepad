@@ -1,0 +1,46 @@
+// Choose in material-color.less
+@main-color: @blue-500;
+@secondary-lighten-color: @blue-300;
+@secondary-darken-color: @blue-700;
+
+// Set light as default
+// Choose beetween "light" & "dark"
+@theme: 'light';
+//@theme: 'dark';
+
+
+.if (@choosed-theme) when (@choosed-theme = 'light') {
+    @text-color: @light-text-color;
+    @text-secondary-color: @light-text-secondary-color;
+    @text-icons-color: @light-text-icons-color;
+    @text-disabled-color: @light-text-disabled-color;
+    @text-hint-color: @light-text-hint-color;
+    @text-divider-color: @light-text-divider-color;
+
+    @hoverd-flat-button: @light-hoverd-flat-button;
+    @pressed-flat-button: @light-pressed-flat-button;
+    @disabled-text-flat-button: @light-disabled-text-flat-button;
+
+    @paper-color: @light-paper-color;
+
+    @shadow-color: @light-shadow-color;
+}
+
+.if (@choosed-theme) when (@choosed-theme = 'dark') {
+    @text-color: @dark-text-color;
+    @text-secondary-color: @dark-text-secondary-color;
+    @text-icons-color: @dark-text-icons-color;
+    @text-disabled-color: @dark-text-disabled-color;
+    @text-hint-color: @dark-text-hint-color;
+    @text-divider-color: @dark-text-divider-color;
+
+    @hoverd-flat-button: @dark-hoverd-flat-button;
+    @pressed-flat-button: @dark-pressed-flat-button;
+    @disabled-text-flat-button: @dark-disabled-text-flat-button;
+
+    @paper-color: @dark-paper-color;
+
+    @shadow-color: @dark-shadow-color;
+}
+
+.if(@theme);

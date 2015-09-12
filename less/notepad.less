@@ -1,0 +1,148 @@
+@import "lib/material-less/material.less";
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.app-bar {
+    .material-app-bar();
+    color: @white;
+    padding-left: 64px;
+}
+
+.layout {
+    width: 100%;
+    height: calc(~"100% - 64px");
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#note-block {
+    height: 100%;
+    flex-grow: 2;
+
+    padding: 5px;
+
+    #editor {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+#left-panel {
+    width: 300px;
+    height: 100%;
+
+    .drawer-elevation();
+
+    padding-top: 20px;
+
+    text-align: center;
+
+    #snippet-list {
+
+        overflow-y: auto;
+
+        display: flex;
+        flex-direction : column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+
+        .snippet {
+            .material-card();
+
+            text-align: left;
+
+            width: 200px;
+            max-width: 200px;
+
+            max-height: 150px;
+            min-height: 23px;
+
+            margin: auto;
+
+            margin-bottom: 10px;
+            padding: 3px 5px;
+
+            cursor: pointer;
+
+            font-size: 0.8rem;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+
+            white-space: pre;
+            word-wrap: break-word;
+
+            .snippet-closer {
+
+                .material-raised-button(@red);
+
+                &:hover {
+                    position: absolute;
+                    top: 0;
+                    right: 10px;
+                }
+
+                padding: 0;
+                margin: 0;
+
+                position: absolute;
+
+                top: 0;
+                right: 10px;
+
+                height: 0px;
+                line-height: 17px;
+                width: 17px;
+                min-width: 17px;
+
+                box-shadow: 0;
+
+                transition: height 0.3s ease-in-out;
+            }
+
+            &:hover .snippet-closer {
+                height: 17px;
+                .raised-button-elevation();
+            }
+        }
+
+        max-height: 85%;
+
+    }
+    #save-btn {
+        .material-raised-button();
+        width: 92%;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 10px;
+    }
+}
