@@ -99,13 +99,14 @@ label {
             word-wrap: break-word;
 
             .snippet-closer {
+                
+                text-align: center;
 
-                .material-raised-button(@red);
+                background-color: @red;
+                color: @white;
 
                 &:hover {
-                    position: absolute;
-                    top: 0;
-                    right: 10px;
+                    
                 }
 
                 padding: 0;
@@ -115,20 +116,23 @@ label {
 
                 top: 0;
                 right: 10px;
-
-                height: 0px;
                 line-height: 17px;
+                height: 0px;
+                
                 width: 17px;
                 min-width: 17px;
 
                 box-shadow: 0;
 
-                transition: height 0.3s ease-in-out;
+                transition: height 0.3s ease-in-out,
+                       line-height 0.3s ease-in-out;
             }
 
             &:hover .snippet-closer {
                 height: 17px;
+                line-height: 17px;
                 .raised-button-elevation();
+                position: absolute;
             }
         }
 
