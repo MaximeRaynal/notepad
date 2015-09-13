@@ -1,0 +1,6 @@
+[submodule "js/lib/noname-js"]
+	path = js/lib/noname-js
+	url = https://github.com/MaximeRaynal/noname-js.git
+[submodule "less/lib/material"]
+	path = less/lib/material
+	url = https://github.com/MaximeRaynal/material-less.git
