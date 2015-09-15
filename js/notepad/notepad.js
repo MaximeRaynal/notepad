@@ -61,14 +61,14 @@ function store(content, langage) {
 
     newSnippet.addEventListener('click', restore, false);
 
-    newSnippet.querySelector('.snippet-closer').addEventListener('click', remove, false);
+    newSnippet.querySelector('.snippet-closer').addEventListener('click', remove, true);
 
     document.getElementById('snippet-list').appendChild(newSnippet);
 }
 
 function remove(evnt) {
     evnt.target.parentNode.remove();
-    evnt.preventDefault();
+    evnt.stopPropagation();
 }
 
 function restore(evnt) {
