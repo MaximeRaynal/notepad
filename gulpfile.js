@@ -22,7 +22,9 @@ gulp.task('less-notepad', function () {
 });
 
 gulp.task('js-notepad', function () {
-  return gulp.src(['js/notepad/*.js', 'js/lib/noname-js/template-rendering.js'])
+  return gulp.src(['js/notepad/*.js',
+                   'js/lib/noname-js/template-rendering.js',
+                   'js/lib/noname-js/tools.js'])
              //.pipe(uglify())
              .pipe(concat('notepad.js'))
              .pipe(gulp.dest('assets/js'))
