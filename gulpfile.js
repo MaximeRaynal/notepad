@@ -22,7 +22,7 @@ gulp.task('less-notepad', function () {
 });
 
 gulp.task('js-notepad', function () {
-  return gulp.src('js/notepad/**/*.js')
+  return gulp.src(['js/notepad/*.js', 'js/lib/noname-js/template-rendering.js'])
              //.pipe(uglify())
              .pipe(concat('notepad.js'))
              .pipe(gulp.dest('assets/js'))
@@ -31,10 +31,14 @@ gulp.task('js-notepad', function () {
 
 
 // -- Font deploying
-
 gulp.task('copy-fonts-roboto', function () {
-    return gulp.src('less/lib/material-less/fonts/roboto/**/*')
-               .pipe(gulp.dest('assets/css/fonts/roboto/'));
+    return gulp.src('less/lib/material/fonts/roboto/**/*')
+               .pipe(gulp.dest('assets/fonts/roboto/'));
+});
+
+gulp.task('copy-fonts-material-icons', function () {
+    return gulp.src('less/lib/material/fonts/material-icons/**/*')
+               .pipe(gulp.dest('assets/fonts/material-icons/'));
 });
 
 /**
@@ -49,7 +53,7 @@ gulp.task('clean', function (cb) {
 
 gulp.task('connect', function() {
     connect.server({
-        port: 80
+        port: 81
     });
 });
 
@@ -66,7 +70,7 @@ gulp.task('less', ['less-notepad']);
 // Create unique compacted scripting file, for all page
 gulp.task('js', ['js-notepad']);
 
-gulp.task('copy-fonts', ['copy-fonts-roboto']);
+gulp.task('copy-fonts', ['copy-fonts-roboto', 'copy-fonts-material-icons']);
 
 
 gulp.task('build', ['js', 'less', 'copy-fonts']);
@@ -77,7 +81,7 @@ gulp.task('prod', function () {
     runSequence('clean', 'build');
 });
 
-gulp.task('watch', ['build', 'server'], function() {
+gulp.task('watch', ['prod', 'server'], function() {
     gulp.watch('less/**/*.less', ['less']);
     gulp.watch('js/**/*.js', ['js']);
     //gulp.watch('images', ['images']);
