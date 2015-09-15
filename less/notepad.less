@@ -30,8 +30,9 @@ label {
 
 #newButton {
     .material-floating-action-button();
-    top: 64px - (56px / 2);
-    right: 400px;
+    //bottom:  64px - (56px / 2);
+    bottom:  40px;
+    right: 350px;
 }
 
 .layout {
@@ -120,29 +121,49 @@ label {
                 right: 10px;
                 line-height: 0px;
                 height: 0px;
+                min-height: 0px;
 
                 width: 17px;
                 min-width: 17px;
 
                 box-shadow: 0;
 
+                font-size: 0px;
+
                 transition+: height 0.3s ease-in-out,
-                       line-height 0.3s ease-in-out;
+                        line-height 0.3s ease-in-out,
+                        font-size 0.3s ease-in-out;
+                .material-icons {
+                    line-height: 17px;
+                    font-size: 0px;
+                }
             }
 
             &:hover .snippet-closer {
+                transition+: height 0.3s ease-in-out,
+                        line-height 0.3s ease-in-out,
+                        font-size 0.3s ease-in-out;;
                 height: 17px;
                 line-height: 17px;
                 .raised-button-elevation();
                 position: absolute;
+                .material-icons {
+                    line-height: 17px;
+                    font-size: 13px;
+                }
             }
 
             .snippet-saver {
 
                 text-align: center;
 
-                background-color: @green;
-                color: @white;
+                background-color: @white;
+                color: @green;
+
+                &.saved {
+                    background-color: @green;
+                    color: @white;
+                }
 
                 padding: 0;
                 margin: 0;
@@ -151,7 +172,7 @@ label {
 
                 bottom: 0;
                 left: 10px;
-                line-height: 17px;
+                line-height: 0px;
                 height: 0px;
 
                 width: 17px;
@@ -161,6 +182,11 @@ label {
 
                 transition+: height 0.3s ease-in-out,
                         line-height 0.3s ease-in-out;
+
+                .material-icons {
+                    line-height: 17px;
+                    font-size: 13px;
+                }
             }
 
             &:hover .snippet-saver {
@@ -168,6 +194,16 @@ label {
                 line-height: 17px;
                 .raised-button-elevation();
                 position: absolute;
+
+                transition+: height 0.3s ease-in-out,
+                        line-height 0.3s ease-in-out,
+                          font-size 0.3s ease-in-out;
+
+                .material-icons {
+                    line-height: 17px;
+                    font-size: 16px;
+                }
+
             }
         }
 
@@ -183,5 +219,10 @@ label {
         right: 0;
         margin: 0 auto;
         bottom: 10px;
-    }
+
+        &:active {
+            position: absolute !important;
+        }
+
+   }
 }
